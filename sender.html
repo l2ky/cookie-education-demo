@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pošalji Link - Edukacija</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f0f0f0; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        .url-box { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; border: 2px dashed #dee2e6; }
+        button { background: #28a745; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #6c757d; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📤 Pošalji Edukacioni Link</h1>
+        
+        <p>Kopiraj ovaj link i pošalji prijatelju za edukaciju:</p>
+        
+        <div class="url-box">
+            <strong id="eduUrl">Učitavam URL...</strong>
+        </div>
+        
+        <button onclick="copyUrl()">📋 Kopiraj URL</button>
+        <button onclick="testLink()">🧪 Testiraj Link</button>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #e7f3ff; border-radius: 5px;">
+            <h3>💡 Kako koristiti za edukaciju:</h3>
+            <ol>
+                <li>Pošalji link prijatelju koji UČI web bezbednost</li>
+                <li>Objasni mu šta će se desiti kada otvori link</li>
+                <li>Pokaži kako se cookie-i mogu zaštititi</li>
+                <li>Diskutujte o važnosti HTTP-Only flag-a</li>
+            </ol>
+        </div>
+        
+        <a href="index.html" class="back-btn">← Nazad na početnu</a>
+    </div>
+
+    <script>
+        // Generiši URL za image logger
+        const currentUrl = window.location.origin + window.location.pathname;
+        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+        const imageLoggerUrl = baseUrl + 'image_logger.html';
+        
+        document.getElementById('eduUrl').textContent = imageLoggerUrl;
+        
+        function copyUrl() {
+            navigator.clipboard.writeText(imageLoggerUrl).then(() => {
+                alert('✅ URL kopiran! Sada ga možeš poslati prijatelju.');
+            });
+        }
+        
+        function testLink() {
+            window.open(imageLoggerUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
