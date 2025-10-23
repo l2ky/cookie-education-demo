@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pošalji Sliku</title>
+    <title>Cookie Security Education</title>
     <style>
-        body { font-family: Arial; padding: 20px; max-width: 600px; margin: 0 auto; }
-        .container { background: #f5f5f5; padding: 20px; border-radius: 10px; }
-        button { background: #7289da; color: white; border: none; padding: 15px 30px; margin: 10px; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        .url-box { background: white; padding: 15px; border-radius: 5px; margin: 10px 0; border: 2px dashed #ccc; }
+        body { font-family: Arial; padding: 40px; text-align: center; background: #f0f0f0; margin: 0; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .button { display: inline-block; background: #7289da; color: white; padding: 15px 25px; margin: 10px; border-radius: 5px; text-decoration: none; font-size: 18px; }
+        .button:hover { background: #5b73c4; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 5px; margin: 20px 0; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📤 Pošalji "Sliku" Prijatelju</h1>
+        <h1>🎓 Edukacija Web Bezbednosti</h1>
+        <p>Demonstracija cookie ranjivosti i zaštite</p>
         
-        <p>Kopiraj ovaj link i pošalji prijatelju:</p>
-        
-        <div class="url-box">
-            <strong id="maliciousUrl">http://tvoj-sajt.com/malicious_image.html</strong>
-            <button onclick="copyUrl()">Kopiraj URL</button>
-        </div>
-
-        <p>Kada prijatelj otvori link:</p>
-        <ul>
-            <li>Videće "sliku"</li>
-            <li>Njihovi cookie-i će biti poslati na Discord</li>
-            <li>Ovo je <strong>samo za edukaciju</strong></li>
-        </ul>
-
         <div class="warning">
-            ⚠️ Koristiti SAMO sa test nalozima i uz dozvolu!
+            ⚠️ <strong>EDUKACIONA SVRHA</strong> - Koristiti samo sa test nalozima!
         </div>
-
-        <button onclick="testYourself()">Testiraj na sebi</button>
+        
+        <h2>🔗 Demonstracije:</h2>
+        
+        <a href="logger.html" class="button">
+            🖼️ Image Cookie Logger
+        </a>
+        
+        <a href="sender.html" class="button">
+            📤 Slanje Linkova
+        </a>
+        
+        <div style="margin-top: 40px; text-align: left;">
+            <h3>📚 Šta ćeš naučiti:</h3>
+            <ul>
+                <li>Kako XSS napadi funkcionišu</li>
+                <li>Zašto su HTTP-Only cookie-i važni</li>
+                <li>Kako CSP (Content Security Policy) štiti sajtove</li>
+                <li>Kako se zaštititi od cookie krade</li>
+            </ul>
+        </div>
     </div>
-
-    <script>
-        function copyUrl() {
-            const url = document.getElementById('maliciousUrl').textContent;
-            navigator.clipboard.writeText(url).then(() => {
-                alert("URL kopiran! Sada ga pošalji prijatelju.");
-            });
-        }
-
-        function testYourself() {
-            window.open('malicious_image.html', '_blank');
-        }
-
-        // Ažuriraj URL ako hostuješ online
-        const currentUrl = window.location.href;
-        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-        document.getElementById('maliciousUrl').textContent = baseUrl + 'malicious_image.html';
-    </script>
 </body>
 </html>
