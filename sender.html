@@ -37,21 +37,21 @@
     </div>
 
     <script>
-        // Generiši URL za image logger
+        // Generiši URL - ISPRAVLJENO za logger.html
         const currentUrl = window.location.origin + window.location.pathname;
         const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-        const imageLoggerUrl = baseUrl + 'image_logger.html';
+        const loggerUrl = baseUrl + 'logger.html';  // ← PROMENJENO U logger.html
         
-        document.getElementById('eduUrl').textContent = imageLoggerUrl;
+        document.getElementById('eduUrl').textContent = loggerUrl;
         
         function copyUrl() {
-            navigator.clipboard.writeText(imageLoggerUrl).then(() => {
+            navigator.clipboard.writeText(loggerUrl).then(() => {
                 alert('✅ URL kopiran! Sada ga možeš poslati prijatelju.');
             });
         }
         
         function testLink() {
-            window.open(imageLoggerUrl, '_blank');
+            window.open(loggerUrl, '_blank');
         }
     </script>
 </body>
